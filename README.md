@@ -11,3 +11,7 @@ To get started with your own secure VPN, simply execute the following commands a
 	$ cd VPN && bash vpn-setup-vanilla.sh
 
 If you're on Linode, you can simply rebuild your instance with the `PPTP VPN Installer` [stackscript](http://www.linode.com/stackscripts/view/?StackScriptID=6346).
+
+ssh root@IP
+cat /etc/ppp/chap-secrets
+bash md_vpn.sh
