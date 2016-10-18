@@ -1,6 +1,6 @@
 function repaireVPN(){
 	echo "begin to repaire VPN";
-	mknod /dev/ppp c 108 0
+	#mknod /dev/ppp c 108 0
 	service iptables restart
 	service pptpd start
 }
