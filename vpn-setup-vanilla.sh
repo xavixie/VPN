@@ -12,10 +12,8 @@
 
 (
 
-VPN_IP=`curl ipv4.icanhazip.com>/dev/null 2>&1`
-
-VPN_USER="myuser"
-VPN_PASS="mypass"
+VPN_USER="xavi"
+VPN_PASS="xavi"
 
 VPN_LOCAL="192.168.0.150"
 VPN_REMOTE="192.168.0.151-200"
@@ -35,8 +33,7 @@ echo "localip $VPN_LOCAL" >> /etc/pptpd.conf # Local IP address of your VPN serv
 echo "remoteip $VPN_REMOTE" >> /etc/pptpd.conf # Scope for your home network
 
 echo "ms-dns 8.8.8.8" >> /etc/ppp/options.pptpd # Google DNS Primary
-echo "ms-dns 209.244.0.3" >> /etc/ppp/options.pptpd # Level3 Primary
-echo "ms-dns 208.67.222.222" >> /etc/ppp/options.pptpd # OpenDNS Primary
+echo "ms-dns 8.8.4.4" >> /etc/ppp/options.pptpd
 
 echo "$VPN_USER pptpd $VPN_PASS *" >> /etc/ppp/chap-secrets
 
@@ -50,7 +47,6 @@ service pptpd restart
 chkconfig pptpd on
 
 echo -e '\E[37;44m'"\033[1m Installation Log: /var/log/vpn-installer.log \033[0m"
-echo -e '\E[37;44m'"\033[1m You can now connect to your VPN via your external IP ($VPN_IP)\033[0m"
 
 echo -e '\E[37;44m'"\033[1m Username: $VPN_USER\033[0m"
 echo -e '\E[37;44m'"\033[1m Password: $VPN_PASS\033[0m"
