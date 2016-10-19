@@ -15,3 +15,19 @@ If you're on Linode, you can simply rebuild your instance with the `PPTP VPN Ins
 ssh root@IP
 cat /etc/ppp/chap-secrets
 bash md_vpn.sh
+
+
+################
+finalspeed:
+
+chmod +x /etc/rc.local
+vi /etc/rc.local
+加入
+sh /fs/start.sh
+
+crontab -e
+加入
+0 3 * * * sh /fs/restart.sh
+
+
+sh /fs/restart.sh; tail -f /fs/server.log
