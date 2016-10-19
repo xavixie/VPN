@@ -13,7 +13,10 @@
 (
 
 VPN_USER="xavi"
-VPN_PASS="xavi"
+VPN_PASS=`openssl rand 6 -base64`
+	if [ "$1" != "" ]
+	then VPN_PASS=$1
+	fi
 
 VPN_LOCAL="192.168.0.150"
 VPN_REMOTE="192.168.0.151-200"
